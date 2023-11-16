@@ -5,15 +5,19 @@ app = Flask(__name__)
 
 host = 'localhost'
 port = 5432
-dbname = 'Rhy'
+dbname = 'rhy'
 user = 'postgres'
 password = 'a'
 
 def get_connection():
     conn = connect (host=host, port=port, dbname=dbname, user=user, password=password)
     return conn
+
 @app.route('/')
 def index():
-    return send_file("/")
+    return send_file('web/index.html')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
